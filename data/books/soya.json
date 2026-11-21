@@ -8,6 +8,9 @@
     "order": 12
   },
   "cover": "covers/soya.jpg",
+  "eventPrices": {
+    "techbookfest": {"紙＋電子": 1800, "電子": 1600}
+  },
   "shops": [
     {
       "shop": "booth",

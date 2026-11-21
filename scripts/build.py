@@ -15,6 +15,16 @@ def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def validate_event_prices(prices, path):
+    if not isinstance(prices, dict) or not prices or prices.keys() - {"standard", "techbookfest"}:
+        raise ValueError(f"Invalid eventPrices profile: {path}")
+    for profile, amounts in prices.items():
+        if not isinstance(amounts, dict) or not amounts or amounts.keys() - {"紙＋電子", "電子"}:
+            raise ValueError(f"Invalid eventPrices formats for {profile}: {path}")
+        if any(type(amount) is not int or amount < 0 for amount in amounts.values()):
+            raise ValueError(f"Expected a nonnegative yen amount for {profile}: {path}")
+
+
 def booth_receipt(price, form):
     """One item, no BOOST. Round each fee up independently to whole yen."""
     if type(price) is not int or price < 0:
@@ -90,6 +100,8 @@ def build():
     books = []
     for path in sorted((ROOT / "data/books").glob("*.json")):
         book = read_json(path)
+        if "eventPrices" in book:
+            validate_event_prices(book.pop("eventPrices"), path)
         # Keep the published catalog format compatible with existing widgets.
         blog = book["blog"]
         if isinstance(blog, dict):
@@ -123,6 +135,17 @@ def build():
                                     for form, price in available.items()
                                     if not (form == "紙" and shop.get("paperPublisher") == "NextPublishing")}
         books.append(book)
+    book_ids = {book["id"] for book in books}
+    for path in sorted((ROOT / "data/bundles").glob("*.json")):
+        bundle = read_json(path)
+        if bundle.get("id") != path.stem or path.stem in book_ids:
+            raise ValueError(f"Invalid bundle ID: {path}")
+        members = bundle.get("bookIds")
+        if (not isinstance(members, list) or len(members) < 2
+                or any(not isinstance(key, str) or key not in book_ids for key in members)
+                or len(set(members)) != len(members)):
+            raise ValueError(f"Expected distinct catalog book IDs in bookIds: {path}")
+        validate_event_prices(bundle.get("eventPrices"), path)
     books.sort(key=lambda book: book["order"])
     examples = read_json(ROOT / "data/receipt-examples.json")
     for group in examples["groups"]:

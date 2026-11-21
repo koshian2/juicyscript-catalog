@@ -8,6 +8,9 @@
     "order": 40
   },
   "cover": "covers/ai2026.jpg",
+  "eventPrices": {
+    "techbookfest": {"紙＋電子": 3500, "電子": 2000}
+  },
   "shops": [
     {
       "shop": "booth",

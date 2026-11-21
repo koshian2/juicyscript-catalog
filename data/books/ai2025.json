@@ -7,6 +7,10 @@
     "enabled": false
   },
   "cover": "covers/ai2025.jpg",
+  "eventPrices": {
+    "standard": {"紙＋電子": 3000, "電子": 2000},
+    "techbookfest": {"電子": 2000}
+  },
   "shops": [
     {
       "shop": "booth",

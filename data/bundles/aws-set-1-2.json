@@ -1,0 +1,14 @@
+{
+  "id": "aws-set-1-2",
+  "title": "Terraformで学ぶAWS・1／2巻セット",
+  "bookIds": [
+    "aws1",
+    "aws2"
+  ],
+  "eventPrices": {
+    "standard": {
+      "紙＋電子": 3500,
+      "電子": 3500
+    }
+  }
+}

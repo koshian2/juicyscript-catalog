@@ -21,6 +21,7 @@ python scripts/preview.py
 | パス | 内容 |
 |---|---|
 | `data/books/<id>.json` | 書誌情報、発行年月、ジャンル、掲載設定、販売先ごとの価格と販売状況 |
+| `data/bundles/<id>.json` | 会場用セットの名前、構成する単巻のID（`bookIds`）、セット価格 |
 | `data/books/<id>.html` | ポータルと記事下で共用する紹介文 |
 | `covers/<id>.jpg` | 公開用書影 |
 
@@ -30,3 +31,9 @@ python scripts/preview.py
 ビルドすると `dist/` に配信用の `catalog.json`、画像、紹介文、JS、CSS が生成されます。
 
 販売データの補足は[ショップ別の計算仕様](docs/shop-receipts.md)にまとめています。
+
+## 即売会の頒布価格
+
+単巻は書籍JSON、セットはセットJSONの `eventPrices` が会場価格の正本です。`standard` はコミケなど一般即売会、`techbookfest` は技術書典の会場を表します。各区分に確認済みの「紙＋電子」「電子」の金額を円単位の整数で登録します。未登録の形態・区分は省略し、他会場の価格からは補完しません。技術書典オンラインマーケットの通販価格は従来どおり `shops` で管理します。
+
+イベントごとの持参品・並び順・完売表示は `sokubaikai-kit` のイベント設定で管理します。ポータルとブログ用の `dist/catalog.json` には会場価格と会場用セットを含めません。

@@ -8,6 +8,9 @@
     "order": 6
   },
   "cover": "covers/docker.jpg",
+  "eventPrices": {
+    "techbookfest": {"紙＋電子": 1900, "電子": 1600}
+  },
   "shops": [
     {
       "shop": "booth",

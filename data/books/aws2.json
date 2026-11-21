@@ -8,6 +8,10 @@
     "order": 20
   },
   "cover": "covers/aws2.jpg",
+  "eventPrices": {
+    "standard": {"紙＋電子": 2500, "電子": 2000},
+    "techbookfest": {"紙＋電子": 2600, "電子": 2000}
+  },
   "shops": [
     {
       "shop": "booth",

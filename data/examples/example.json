@@ -8,6 +8,10 @@
     "order": 0
   },
   "cover": "covers/example.jpg",
+  "eventPrices": {
+    "standard": { "紙＋電子": 1500, "電子": 1500 },
+    "techbookfest": { "紙＋電子": 1700, "電子": 1500 }
+  },
   "shops": [
     {
       "shop": "booth",

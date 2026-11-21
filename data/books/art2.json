@@ -7,6 +7,9 @@
     "enabled": false
   },
   "cover": "covers/art2.jpg",
+  "eventPrices": {
+    "techbookfest": {"紙＋電子": 2500, "電子": 1800}
+  },
   "shops": [
     {
       "shop": "booth",

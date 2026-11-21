@@ -8,6 +8,9 @@
     "order": 5
   },
   "cover": "covers/art1.jpg",
+  "eventPrices": {
+    "techbookfest": {"紙＋電子": 2400, "電子": 1700}
+  },
   "shops": [
     {
       "shop": "booth",
