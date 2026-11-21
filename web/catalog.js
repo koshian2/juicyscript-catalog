@@ -162,18 +162,16 @@ function blogRow(book) {
   return row;
 }
 
-function receiptTable(receipts, books) {
-  const wrap = node("div", "receipt-sheet");
-  wrap.append(node("h2", "", "BOOTHの著者受取額（現在の登録価格）"),
-    node("p", "", "1商品を単独注文、BOOSTなしの場合。電子はダウンロード、紙・紙＋電子は倉庫発送として計算しています。印刷原価・振込手数料は含みません。"));
-  const current = node("table", "table table-sm table-bordered booth-receipts");
+function currentReceiptTable(books, store) {
+  const current = node("table", "table table-sm table-bordered current-receipts");
   const labels = current.createTHead().insertRow();
   for (const label of ["作品", "形態", "販売価格", "著者受取額"]) labels.append(node("th", "", label));
   const rows = current.createTBody();
   for (const book of books) {
-    for (const shop of book.shops.filter(shop => shop.shop === "booth" && !shop.sold)) {
+    for (const shop of book.shops.filter(shop => shop.shop === store && !shop.sold)) {
       const prices = Object.entries(shop.prices ?? {});
       for (const [form, price] of prices.length ? prices : [["", null]]) {
+        if (form === "紙" && shop.paperPublisher === "NextPublishing") continue;
         const amount = shop.receipts?.[form];
         const row = rows.insertRow();
         for (const value of [book.title, [shop.variant, form].filter(Boolean).join(" "), price == null ? shop.caption : price.toLocaleString("ja-JP") + "円",
@@ -181,7 +179,17 @@ function receiptTable(receipts, books) {
       }
     }
   }
-  wrap.append(current, node("h2", "", "参考：旧早見表（当時の頒価・手数料）"));
+  return current;
+}
+
+function receiptTable(receipts, books) {
+  const wrap = node("div", "receipt-sheet");
+  wrap.append(node("h2", "", "BOOTHの著者受取額（現在の登録価格）"),
+    node("p", "", "1商品を単独注文、BOOSTなしの場合。電子はダウンロード、紙・紙＋電子は倉庫発送として計算しています。印刷原価・振込手数料は含みません。"));
+  wrap.append(currentReceiptTable(books, "booth"),
+    node("h2", "", "Amazon.co.jpのKDPロイヤリティ（通常販売1冊の概算）"),
+    node("p", "", "税込希望小売価格を基準とします。印刷コスト・電子版の適用条件が未登録の行は条件未確認と表示します。Kindle Unlimitedの既読収益は含みません。"),
+    currentReceiptTable(books, "amazon"), node("h2", "", "参考：旧早見表（当時の頒価・手数料）"));
   const table = node("table", "table table-sm table-bordered");
   const columns = ["Booth", "とら", "メロン", "技術書典OM", "おもバザハンズ", "Amazon", "メロン完全版"];
   const head = table.createTHead().insertRow();

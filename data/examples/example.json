@@ -26,6 +26,16 @@
       "url": "https://example.com/books/special-edition",
       "caption": "特典付き限定版 2,500円",
       "sold": false
+    },
+    {
+      "shop": "amazon",
+      "url": "https://example.com/books/kdp",
+      "prices": { "紙": 2980, "電子": 490 },
+      "kdp": {
+        "printing": 746,
+        "ebookRate": 70,
+        "delivery": 0
+      }
     }
   ]
 }

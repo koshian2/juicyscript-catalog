@@ -29,9 +29,10 @@
       "shop": "amazon",
       "url": "https://www.amazon.co.jp/dp/B0F8VN3MBK",
       "prices": {
-        "紙＋電子": 4700,
-        "電子": 4500
-      }
+        "紙": 4700,
+        "電子": 3200
+      },
+      "kdp": { "printing": 1078 }
     }
   ]
 }

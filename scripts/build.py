@@ -28,6 +28,40 @@ def booth_receipt(price, form):
     return price - service - warehouse
 
 
+def kdp_receipt(price, form, terms):
+    """Estimate one retail sale on Amazon.co.jp from a tax-inclusive list price."""
+    if type(price) is not int or price < 0:
+        raise ValueError(f"Invalid KDP price: {price}")
+    net = Decimal(price) / Decimal("1.10")
+    if form in {"紙", "紙＋電子"}:
+        cost = terms.get("printing")
+        if cost is None:
+            return None
+        if type(cost) is not int or cost < 0:
+            raise ValueError(f"Invalid KDP printing cost: {cost}")
+        rate = Decimal("0.60") if net >= 1000 else Decimal("0.50")
+        return int((net * rate - cost).quantize(Decimal(1), rounding=ROUND_HALF_UP))
+    if form != "電子" and not form.startswith("電子（"):
+        return None
+    rate = terms.get("ebookRate")
+    if price == 0:
+        return 0
+    if not 250 <= price <= 1650:
+        rate = 35
+    if rate is None:
+        return None
+    if rate not in (35, 70):
+        raise ValueError(f"Invalid KDP ebook rate: {rate}")
+    delivery = terms.get("delivery") if rate == 70 else 0
+    if delivery is None:
+        return None
+    if type(delivery) is not int or delivery < 0:
+        raise ValueError(f"Invalid KDP delivery cost: {delivery}")
+    royalty = (net - delivery) * rate / 100
+    # KDP rounds yen royalties up from a fractional part of 0.46.
+    return int(royalty + Decimal("0.54"))
+
+
 def receipt(offer):
     """Reproduce the historical public sheet, including its original BOOTH fees."""
     if "publishedAmount" in offer:
@@ -45,6 +79,8 @@ def receipt(offer):
         amount = price * Decimal("0.65")
     elif shop == "Amazon" and not paper:
         amount = price / Decimal("1.1") * Decimal("0.35")
+    elif shop == "Amazon" and offer.get("publisher") == "KDP":
+        return kdp_receipt(offer["price"], "紙", offer)
     else:
         raise ValueError(f"Unknown receipt rule: {offer}")
     return int(amount.quantize(Decimal(1), rounding=ROUND_HALF_UP))
@@ -73,6 +109,10 @@ def build():
             if shop["shop"] == "booth" and not shop.get("sold"):
                 shop["receipts"] = {form: booth_receipt(price, form)
                                     for form, price in shop.get("prices", {}).items()}
+            if shop["shop"] == "amazon" and "kdp" in shop and not shop.get("sold"):
+                shop["receipts"] = {form: kdp_receipt(price, form, shop["kdp"])
+                                    for form, price in shop.get("prices", {}).items()
+                                    if not (form == "紙" and shop.get("paperPublisher") == "NextPublishing")}
         books.append(book)
     books.sort(key=lambda book: book["order"])
     examples = read_json(ROOT / "data/receipt-examples.json")

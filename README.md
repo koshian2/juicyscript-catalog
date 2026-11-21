@@ -14,7 +14,7 @@ python scripts/preview.py
 - 記事下は http://127.0.0.1:8765/blog.html
 - 配信用JSONは http://127.0.0.1:8766/catalog.json
 
-起動時にビルドします。データ変更後は別ターミナルで `python scripts/build.py` を実行し、画面を再読み込みします。受取額の回帰テストは `python scripts/test_receipts.py` です。
+起動時にビルドします。データ変更後は別ターミナルで `python scripts/build.py` を実行し、画面を再読み込みします。
 
 ## データ構成
 
@@ -23,13 +23,8 @@ python scripts/preview.py
 | `data/books/<id>.json` | 書誌情報、発行年月、ジャンル、掲載設定、販売先ごとの価格と販売状況 |
 | `data/books/<id>.html` | ポータルと記事下で共用する紹介文 |
 | `covers/<id>.jpg` | 公開用書影 |
-| `data/receipt-examples.json` | ショップ別著者受取金額の公開早見表にある基準頒価・形態・注釈 |
 
 データ形式の例は [書誌・販売先](data/examples/example.json) と [紹介文](data/examples/example.html) にあります。
 ビルドすると `dist/` に配信用の `catalog.json`、画像、紹介文、JS、CSS が生成されます。
 
-## ショップ別著者受取金額
-
-BOOTHは販売中の商品の登録価格から算出します。1商品・BOOSTなしで、電子はダウンロード、紙と紙＋電子は倉庫発送を想定します。サービス利用料は価格の5.6%＋45円、倉庫発送手数料は価格の2.5%＋25円で、それぞれ1円未満を切り上げます。無料ダウンロードは0円です。旧早見表は当時の条件を明記して別掲します。[サービス利用料](https://booth.pixiv.help/hc/ja/articles/115004576874)・[倉庫発送手数料](https://booth.pixiv.help/hc/ja/articles/49117259932697)
-
-`data/receipt-examples.json` は既存の公開早見表の基準頒価・形態・注釈です。書籍カードの通常販売価格と早見表の基準頒価には実際に差があります。早見表の9件を元の条件で再現し、計算式のある48件をビルド時に計算します。元シートで金額が直接記載されていた9件は注釈付きの公表値です。[公開早見表](https://shikoan.com/#margin)
+販売データの補足は[ショップ別の計算仕様](docs/shop-receipts.md)にまとめています。

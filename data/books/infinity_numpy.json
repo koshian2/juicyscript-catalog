@@ -31,7 +31,9 @@
       "prices": {
         "紙": 3300,
         "電子": 2850
-      }
+      },
+      "kdp": {},
+      "paperPublisher": "NextPublishing"
     },
     {
       "shop": "tbf",

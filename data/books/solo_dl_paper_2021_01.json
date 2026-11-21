@@ -18,12 +18,22 @@
     {
       "shop": "amazon",
       "url": "https://www.amazon.co.jp/dp/B09RP4TTJ5",
-      "caption": "上巻　紙2900円、電子2800円"
+      "variant": "上巻",
+      "prices": {
+        "紙": 2900,
+        "電子": 2800
+      },
+      "kdp": { "printing": 743 }
     },
     {
       "shop": "amazon",
       "url": "https://www.amazon.co.jp/dp/B09S6BF4HB",
-      "caption": "下巻　紙2900円、電子2800円"
+      "variant": "下巻",
+      "prices": {
+        "紙": 2900,
+        "電子": 2800
+      },
+      "kdp": { "printing": 740 }
     },
     {
       "shop": "melon",

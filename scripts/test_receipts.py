@@ -1,6 +1,6 @@
 import unittest
 
-from build import ROOT, booth_receipt, read_json, receipt
+from build import ROOT, booth_receipt, kdp_receipt, read_json, receipt
 
 
 class CurrentBoothTest(unittest.TestCase):
@@ -12,6 +12,24 @@ class CurrentBoothTest(unittest.TestCase):
         ]:
             with self.subTest(form=form, price=price):
                 self.assertEqual(booth_receipt(price, form), expected)
+
+
+class KdpTest(unittest.TestCase):
+    def test_amazon_japan_royalties(self):
+        for price, form, terms, expected in [
+            (2980, "紙", {"printing": 746}, 879),
+            (1099, "紙", {"printing": 400}, 100),
+            (1100, "紙", {"printing": 400}, 200),
+            (2800, "電子", {}, 891),
+            (490, "電子", {"ebookRate": 70, "delivery": 0}, 312),
+            (490, "電子", {"ebookRate": 70, "delivery": 5}, 308),
+            (250, "電子", {"ebookRate": 35}, 80),
+            (490, "電子", {}, None),
+            (490, "電子", {"ebookRate": 70}, None),
+            (3650, "紙", {}, None),
+        ]:
+            with self.subTest(price=price, form=form, terms=terms):
+                self.assertEqual(kdp_receipt(price, form, terms), expected)
 
 
 class PublishedSheetTest(unittest.TestCase):

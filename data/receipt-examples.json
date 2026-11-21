@@ -163,7 +163,7 @@
           "format": "紙",
           "price": 2900,
           "printing": 743,
-          "publishedAmount": 839,
+          "publisher": "KDP",
           "note": "★1"
         }
       ]
@@ -212,7 +212,7 @@
           "format": "紙",
           "price": 2980,
           "printing": 746,
-          "publishedAmount": 879,
+          "publisher": "KDP",
           "note": "★1"
         }
       ]
@@ -251,7 +251,7 @@
           "format": "紙",
           "price": 3500,
           "printing": 881,
-          "publishedAmount": 1028,
+          "publisher": "KDP",
           "note": "★1"
         }
       ]

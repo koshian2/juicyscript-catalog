@@ -31,7 +31,12 @@
     {
       "shop": "amazon",
       "url": "https://www.amazon.co.jp/dp/B092844155",
-      "caption": "全7巻、Unlimited無料\n初巻300円、他490円"
+      "kdp": { "ebookRate": 70, "delivery": 0 },
+      "variant": "全7巻、Unlimited対象",
+      "prices": {
+        "電子（初巻）": 300,
+        "電子（2巻以降）": 490
+      }
     },
     {
       "shop": "tbf",
