@@ -12,12 +12,18 @@
     {
       "shop": "booth",
       "url": "https://koshian2.booth.pm/items/2169975",
-      "caption": "Vol.1 電子650円"
+      "variant": "Vol.1",
+      "prices": {
+        "電子": 650
+      }
     },
     {
       "shop": "booth",
       "url": "https://koshian2.booth.pm/items/2170021",
-      "caption": "Vol.2 電子650円"
+      "variant": "Vol.2",
+      "prices": {
+        "電子": 650
+      }
     },
     {
       "shop": "tbf",

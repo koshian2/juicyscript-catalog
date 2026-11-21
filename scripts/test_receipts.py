@@ -1,6 +1,17 @@
 import unittest
 
-from build import ROOT, read_json, receipt
+from build import ROOT, booth_receipt, read_json, receipt
+
+
+class CurrentBoothTest(unittest.TestCase):
+    def test_single_item(self):
+        for form, price, expected in [
+            ("電子", 0, 0), ("電子", 1800, 1654), ("電子", 1900, 1748),
+            ("紙", 2500, 2227), ("紙＋電子", 2200, 1951),
+            ("紙", 1001, 848), ("グッズ", 1980, None),
+        ]:
+            with self.subTest(form=form, price=price):
+                self.assertEqual(booth_receipt(price, form), expected)
 
 
 class PublishedSheetTest(unittest.TestCase):

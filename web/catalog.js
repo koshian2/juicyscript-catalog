@@ -21,7 +21,7 @@ function linkTo(url, newTab) {
 function banner(offer) {
   const figure = node("figure", "promo-shop");
   const name = shopNames[offer.shop] || offer.shop;
-  const caption = offer.caption ?? Object.entries(offer.prices).map(([kind, amount]) => kind + amount + "円").join("、");
+  const caption = offer.caption ?? [offer.variant, Object.entries(offer.prices).map(([kind, amount]) => kind + amount + "円").join("、")].filter(Boolean).join(" ");
   const link = offer.sold ? node("span") : linkTo(offer.url, false);
   const image = node("img", "promo-shop");
   image.alt = name + (offer.sold ? "（販売終了）" : "");
@@ -86,6 +86,7 @@ function priceTable(book) {
       link.append(logo);
       store.append(link);
     }
+    if (offer.variant) store.append(node("small", "", offer.variant));
     row.append(store);
     if (offer.caption) {
       const cell = row.insertCell();
@@ -161,8 +162,26 @@ function blogRow(book) {
   return row;
 }
 
-function receiptTable(receipts) {
+function receiptTable(receipts, books) {
   const wrap = node("div", "receipt-sheet");
+  wrap.append(node("h2", "", "BOOTHの著者受取額（現在の登録価格）"),
+    node("p", "", "1商品を単独注文、BOOSTなしの場合。電子はダウンロード、紙・紙＋電子は倉庫発送として計算しています。印刷原価・振込手数料は含みません。"));
+  const current = node("table", "table table-sm table-bordered booth-receipts");
+  const labels = current.createTHead().insertRow();
+  for (const label of ["作品", "形態", "販売価格", "著者受取額"]) labels.append(node("th", "", label));
+  const rows = current.createTBody();
+  for (const book of books) {
+    for (const shop of book.shops.filter(shop => shop.shop === "booth" && !shop.sold)) {
+      const prices = Object.entries(shop.prices ?? {});
+      for (const [form, price] of prices.length ? prices : [["", null]]) {
+        const amount = shop.receipts?.[form];
+        const row = rows.insertRow();
+        for (const value of [book.title, [shop.variant, form].filter(Boolean).join(" "), price == null ? shop.caption : price.toLocaleString("ja-JP") + "円",
+          amount == null ? "条件未確認" : amount.toLocaleString("ja-JP") + "円"]) row.insertCell().textContent = value;
+      }
+    }
+  }
+  wrap.append(current, node("h2", "", "参考：旧早見表（当時の頒価・手数料）"));
   const table = node("table", "table table-sm table-bordered");
   const columns = ["Booth", "とら", "メロン", "技術書典OM", "おもバザハンズ", "Amazon", "メロン完全版"];
   const head = table.createTHead().insertRow();
@@ -199,7 +218,7 @@ async function render() {
     for (const root of roots) {
       const kind = root.dataset.jsCatalog;
       if (kind === "margin") {
-        root.replaceChildren(receiptTable(catalog.receipts));
+        root.replaceChildren(receiptTable(catalog.receipts, catalog.books));
       } else if (kind === "blog") {
         const content = document.createDocumentFragment();
         for (const [genre, title] of [["tech","技術書コーナー"],["eki","北海道の駅巡りコーナー"]]) {

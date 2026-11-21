@@ -12,7 +12,10 @@
     {
       "shop": "booth",
       "url": "https://koshian2.booth.pm/items/2992128",
-      "caption": "通常版1700円"
+      "variant": "通常版",
+      "prices": {
+        "紙": 1700
+      }
     },
     {
       "shop": "melon",

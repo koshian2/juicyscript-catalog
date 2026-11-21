@@ -15,7 +15,21 @@ def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def booth_receipt(price, form):
+    """One item, no BOOST. Round each fee up independently to whole yen."""
+    if type(price) is not int or price < 0:
+        raise ValueError(f"Invalid BOOTH price: {price}")
+    if form not in {"紙", "紙＋電子", "電子"} or (price == 0 and form != "電子"):
+        return None
+    if price == 0:
+        return 0
+    service = (price * 56 + 999) // 1000 + 45
+    warehouse = 0 if form == "電子" else (price * 25 + 999) // 1000 + 25
+    return price - service - warehouse
+
+
 def receipt(offer):
+    """Reproduce the historical public sheet, including its original BOOTH fees."""
     if "publishedAmount" in offer:
         return offer["publishedAmount"]
     price = Decimal(offer["price"])
@@ -56,6 +70,9 @@ def build():
         for shop in book["shops"]:
             if urlsplit(shop["url"]).scheme not in {"https", "http"}:
                 raise ValueError(f"Invalid purchase URL: {path}")
+            if shop["shop"] == "booth" and not shop.get("sold"):
+                shop["receipts"] = {form: booth_receipt(price, form)
+                                    for form, price in shop.get("prices", {}).items()}
         books.append(book)
     books.sort(key=lambda book: book["order"])
     examples = read_json(ROOT / "data/receipt-examples.json")
