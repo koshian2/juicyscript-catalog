@@ -1,0 +1,379 @@
+{
+  "groups": [
+    {
+      "id": "mosaic_2020",
+      "title": "モザイク除去から学ぶ最先端のディープラーニング（2020年）",
+      "offers": [
+        {
+          "shop": "Booth",
+          "format": "電子",
+          "price": 1800
+        },
+        {
+          "shop": "メロン",
+          "format": "電子",
+          "price": 3300
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 1800
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 2500
+        },
+        {
+          "shop": "とら",
+          "format": "紙",
+          "price": 3300
+        },
+        {
+          "shop": "メロン",
+          "format": "紙",
+          "price": 4400,
+          "printing": 1448,
+          "publishedAmount": 1358,
+          "note": "★1"
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 2100
+        },
+        {
+          "shop": "おもバザハンズ",
+          "format": "紙",
+          "price": 3000
+        }
+      ]
+    },
+    {
+      "id": "mlblog_01",
+      "title": "Shikoan's ML Blog Vol.1-2（2020年）",
+      "offers": [
+        {
+          "shop": "Booth",
+          "format": "電子",
+          "price": 550
+        }
+      ]
+    },
+    {
+      "id": "infinity_numpy",
+      "title": "インフィニティNumPy（2020年）",
+      "offers": [
+        {
+          "shop": "Booth",
+          "format": "電子",
+          "price": 1800
+        },
+        {
+          "shop": "メロン",
+          "format": "電子",
+          "price": 2365
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 1800
+        },
+        {
+          "shop": "Amazon",
+          "format": "電子",
+          "price": 2850
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 1800
+        },
+        {
+          "shop": "とら",
+          "format": "紙",
+          "price": 2365
+        },
+        {
+          "shop": "メロン",
+          "format": "紙",
+          "price": 2365
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 2000
+        },
+        {
+          "shop": "おもバザハンズ",
+          "format": "紙",
+          "price": 2400
+        },
+        {
+          "shop": "Amazon",
+          "format": "紙",
+          "price": 3300,
+          "printing": 680,
+          "publishedAmount": 1000,
+          "note": "★1"
+        }
+      ]
+    },
+    {
+      "id": "solo_dl_paper_2021_01",
+      "title": "2021年のディープラーニング論文を1人で読むアドベントカレンダー　上/下（2022年）",
+      "offers": [
+        {
+          "shop": "Booth",
+          "format": "電子",
+          "price": 1400
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 1400
+        },
+        {
+          "shop": "Amazon",
+          "format": "電子",
+          "price": 2800
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 1400
+        },
+        {
+          "shop": "とら",
+          "format": "紙",
+          "price": 2145
+        },
+        {
+          "shop": "メロン",
+          "format": "紙",
+          "price": 2145
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 1500
+        },
+        {
+          "shop": "Amazon",
+          "format": "紙",
+          "price": 2900,
+          "printing": 743,
+          "publishedAmount": 839,
+          "note": "★1"
+        }
+      ]
+    },
+    {
+      "id": "docker",
+      "title": "はじめてのDocker & SageMaker（2022年）",
+      "offers": [
+        {
+          "shop": "Booth",
+          "format": "電子",
+          "price": 2000
+        },
+        {
+          "shop": "メロン",
+          "format": "電子",
+          "price": 2640
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 2000
+        },
+        {
+          "shop": "Amazon",
+          "format": "電子",
+          "price": 2900
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 2000
+        },
+        {
+          "shop": "メロン",
+          "format": "紙",
+          "price": 2420
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 2000
+        },
+        {
+          "shop": "Amazon",
+          "format": "紙",
+          "price": 2980,
+          "printing": 746,
+          "publishedAmount": 879,
+          "note": "★1"
+        }
+      ]
+    },
+    {
+      "id": "art1",
+      "title": "AIアートの新時代：CLIPとStable Diffusion（2023年）",
+      "offers": [
+        {
+          "shop": "Booth",
+          "format": "電子",
+          "price": 1500
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 1500
+        },
+        {
+          "shop": "Amazon",
+          "format": "電子",
+          "price": 3400
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 2100
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 2500
+        },
+        {
+          "shop": "Amazon",
+          "format": "紙",
+          "price": 3500,
+          "printing": 881,
+          "publishedAmount": 1028,
+          "note": "★1"
+        }
+      ]
+    },
+    {
+      "id": "eki01_hidaka",
+      "title": "日高本線　車なし全駅巡り（シリーズVol.1　2020年）",
+      "offers": [
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 1600
+        },
+        {
+          "shop": "Amazon",
+          "format": "電子",
+          "price": "490：3巻",
+          "publishedAmount": 312,
+          "note": "★2"
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 1600
+        },
+        {
+          "shop": "とら",
+          "format": "紙",
+          "price": 2530
+        },
+        {
+          "shop": "メロン",
+          "format": "紙",
+          "price": 2530
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 1900
+        },
+        {
+          "shop": "おもバザハンズ",
+          "format": "紙",
+          "price": 2400
+        }
+      ]
+    },
+    {
+      "id": "soya",
+      "title": "宗谷本線　車なし全駅巡り（シリーズVol.2　2021年　通常版）",
+      "offers": [
+        {
+          "shop": "技術書典OM",
+          "format": "電子",
+          "price": 1600
+        },
+        {
+          "shop": "Amazon",
+          "format": "電子",
+          "price": "490：7巻",
+          "publishedAmount": 312,
+          "note": "★2"
+        },
+        {
+          "shop": "Booth",
+          "format": "紙",
+          "price": 1600
+        },
+        {
+          "shop": "とら",
+          "format": "紙",
+          "price": 2145
+        },
+        {
+          "shop": "メロン",
+          "format": "紙",
+          "price": 2145
+        },
+        {
+          "shop": "技術書典OM",
+          "format": "紙",
+          "price": 2000
+        },
+        {
+          "shop": "おもバザハンズ",
+          "format": "紙",
+          "price": 2000
+        },
+        {
+          "shop": "メロン完全版",
+          "format": "紙",
+          "price": 7700,
+          "printing": 2748,
+          "publishedAmount": 2367,
+          "note": "★1"
+        }
+      ]
+    },
+    {
+      "id": "goods_mugcup_anko01",
+      "title": "あんこちゃんマグカップ",
+      "offers": [
+        {
+          "shop": "メロン",
+          "format": "グッズ",
+          "price": 1980,
+          "publishedAmount": 990,
+          "note": "★1"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "★1：オンデマンド製本/製造の受取金額で、物理受取金額は印刷代/製造代を差し引いた金額になります",
+    "★2：駅巡りのAmazonは「～公共交通機関だけで訪問したら大変なことになった話」の2巻以降で計算しています（製本が全く別の本です）",
+    "オンデマンド印刷代は、在庫を持たずに受注生産で製本する場合の印刷代です",
+    "在庫を持つ場合は、別途印刷の製造原価がありますが、これについては原則非公開とします",
+    "とら、メロンなどのセールや掛率アップキャンペーンは含まないで併売基本の70％で計算。実際の掛率とは異なる場合があります",
+    "Boothは「Boost」機能により、頒価以上の金額を支払うことが可能です",
+    "技術書典OMは送料無料です、その他（Boothやとらメロン、Amazon）などは送料別途となります",
+    "Amazonの物理本は、Next publishing 経由（インフィニティNumPy）、Amazon公式のペーパーバック（その他）により受取金額が変わります",
+    "Amazonの物理本の製本は、モノクロ印刷の場合、本文：書籍クリーム、表紙：クリアPPとしています",
+    "メロンオンデマンドの製本は、カラー印刷の場合、本文：マットコート135kg、表紙マットコート180kgが基本仕様です（変更の場合あり）"
+  ]
+}

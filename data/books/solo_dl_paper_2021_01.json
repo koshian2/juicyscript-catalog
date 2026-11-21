@@ -1,0 +1,40 @@
+{
+  "id": "solo_dl_paper_2021_01",
+  "title": "2021年のディープラーニング論文を1人で読むアドベントカレンダー　上/下",
+  "published": "2022/1",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 7
+  },
+  "cover": "covers/solo_dl_paper_2021_01.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/3595424",
+      "caption": "上下巻各1500円（紙＋電子、電子）",
+      "sold": true
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B09RP4TTJ5",
+      "caption": "上巻　紙2900円、電子2800円"
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B09S6BF4HB",
+      "caption": "下巻　紙2900円、電子2800円"
+    },
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=1207007",
+      "caption": "上下巻各2145円（紙）",
+      "sold": true
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/6525347413622784?productVariantID=5211222779625472",
+      "caption": "上下各　紙1500円、電子1000円"
+    }
+  ]
+}

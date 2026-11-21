@@ -1,0 +1,37 @@
+{
+  "id": "art2",
+  "title": "AIアートの新時代２：Stable Diffusionの課題と動画生成の新潮流",
+  "published": "2024/5",
+  "genre": "tech",
+  "blog": {
+    "enabled": true,
+    "order": 3
+  },
+  "cover": "covers/art2.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/5814845",
+      "prices": {
+        "紙＋電子": 2500,
+        "電子": 1900
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0D8LMYBLJ",
+      "prices": {
+        "紙": 3599,
+        "電子": 3500
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/mwP6sCkTZ0ZXGGSp9LsT0z",
+      "prices": {
+        "紙＋電子": 2600,
+        "電子": 1900
+      }
+    }
+  ]
+}

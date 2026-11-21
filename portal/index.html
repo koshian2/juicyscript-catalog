@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>じゅ～しぃ～すくりぷと　新刊・既刊案内</title>
+<meta name="description" content="じゅ～しぃ～すくりぷと（こしあん）著の書籍・通販一覧です">
+<meta property="og:image" content="https://shikoan.com/dashboard_resource/assets/logo_ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="__ASSETS__/portal/honoka.css">
+<link rel="stylesheet" href="__ASSETS__/portal/dashboard.css">
+<link rel="stylesheet" href="__ASSETS__/portal/edition.css">
+</head><body>
+<header class="catalog-mast">
+  <div class="logo-container"><a href="https://koshian2.booth.pm/" target="_blank" rel="noopener noreferrer"><img class="logo" src="logo.png" alt="じゅ～しぃ～すくりぷと"></a></div>
+</header>
+<nav class="nav nav-tabs" aria-label="カタログ">
+    <a class="nav-link" href="#tech">技術書</a>
+    <a class="nav-link" href="#eki">駅巡り</a>
+    <a class="nav-link" href="#goods">グッズ</a>
+    <a class="nav-link" href="#margin">ショップ別著者受取金額</a>
+    <a class="nav-link" href="#event">出展イベント予定</a>
+  </nav>
+<main>
+  <section id="tech" data-js-catalog="tech" aria-label="技術書"></section>
+  <section id="eki" data-js-catalog="eki" aria-label="駅巡り"></section>
+  <section id="goods" data-js-catalog="goods" aria-label="グッズ"></section>
+  <section id="margin" data-js-catalog="margin" aria-label="ショップ別著者受取金額"></section>
+  <section id="event" aria-label="出展イベント予定"><iframe title="出展イベント予定" loading="lazy" src="https://calendar.google.com/calendar/embed?src=300sa2jp22n0dhn1o5n8dt1nf8%40group.calendar.google.com&amp;ctz=Asia%2FTokyo"></iframe></section>
+</main>
+<script>
+const tabs = Array.from(document.querySelectorAll(".nav-link"));
+function showTab() {
+  const current = tabs.find(link => link.hash === location.hash) || tabs[0];
+  for (const link of tabs) {
+    const active = link === current;
+    document.querySelector(link.hash).hidden = !active;
+    link.classList.toggle("active", active);
+    if (active) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  }
+  window.scrollTo(0, 0);
+}
+for (const link of tabs) {
+  link.addEventListener("click", event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (link.hash !== location.hash) history.pushState(null, "", link.hash);
+    showTab();
+  });
+}
+window.addEventListener("hashchange", showTab);
+showTab();
+</script>
+<script type="module" src="__ASSETS__/catalog.js"></script>
+</body></html>

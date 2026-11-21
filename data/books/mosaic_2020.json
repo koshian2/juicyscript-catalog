@@ -1,0 +1,49 @@
+{
+  "id": "mosaic_2020",
+  "title": "モザイク除去から学ぶ　最先端のディープラーニング",
+  "published": "2020/3",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 9
+  },
+  "cover": "covers/mosaic_2020.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/1835219",
+      "prices": {
+        "電子": 1900
+      }
+    },
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=1031017",
+      "prices": {
+        "紙": 4400,
+        "電子": 3300
+      }
+    },
+    {
+      "shop": "note",
+      "url": "https://note.com/koshian2/n/n8ebe5345306c",
+      "prices": {
+        "電子": 1850
+      }
+    },
+    {
+      "shop": "dlsite",
+      "url": "https://www.dlsite.com/home/work/=/product_id/RJ314824.html",
+      "prices": {
+        "電子": 2090
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/5740557385072640?productVariantID=5682774170140672",
+      "prices": {
+        "電子": 1200
+      }
+    }
+  ]
+}

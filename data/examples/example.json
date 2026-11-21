@@ -1,0 +1,31 @@
+{
+  "id": "example",
+  "title": "サンプル書籍：はじめての実践ガイド",
+  "published": "2026/11",
+  "genre": "tech",
+  "blog": {
+    "enabled": true,
+    "order": 0
+  },
+  "cover": "covers/example.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://example.com/books/digital",
+      "prices": { "電子": 1500 },
+      "sold": false
+    },
+    {
+      "shop": "booth",
+      "url": "https://example.com/books/print-bundle",
+      "prices": { "紙＋電子": 2000 },
+      "sold": true
+    },
+    {
+      "shop": "melon",
+      "url": "https://example.com/books/special-edition",
+      "caption": "特典付き限定版 2,500円",
+      "sold": false
+    }
+  ]
+}

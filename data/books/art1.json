@@ -1,0 +1,37 @@
+{
+  "id": "art1",
+  "title": "AIアートの新時代：CLIPとStable Diffusionを活用した画像生成技術とその応用",
+  "published": "2023/5",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 5
+  },
+  "cover": "covers/art1.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/4820110",
+      "prices": {
+        "紙＋電子": 2200,
+        "電子": 1600
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0C87VKZT5",
+      "prices": {
+        "紙": 3500,
+        "電子": 3400
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/8CFiatcRSM9D88iAupz5LD",
+      "prices": {
+        "紙＋電子": 2500,
+        "電子": 1700
+      }
+    }
+  ]
+}

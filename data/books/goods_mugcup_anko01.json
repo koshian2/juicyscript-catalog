@@ -1,0 +1,18 @@
+{
+  "id": "goods_mugcup_anko01",
+  "title": "【じゅ～しぃ～すくりぷと】あんこちゃんマグカップ",
+  "published": "2021/7",
+  "genre": "goods",
+  "blog": {
+    "enabled": false,
+    "order": 13
+  },
+  "cover": "covers/goods_mugcup_anko01.jpg",
+  "shops": [
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=1044925",
+      "caption": "1980円"
+    }
+  ]
+}

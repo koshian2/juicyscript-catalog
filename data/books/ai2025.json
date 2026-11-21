@@ -1,0 +1,37 @@
+{
+  "id": "ai2025",
+  "title": "AI論文年鑑 2025",
+  "published": "2025/5",
+  "genre": "tech",
+  "blog": {
+    "enabled": true,
+    "order": 1
+  },
+  "cover": "covers/ai2025.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/6926188",
+      "prices": {
+        "紙＋電子": 3200,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/m0nipzSmeg7sFZx51AwCrr",
+      "prices": {
+        "紙＋電子": 3500,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0F8VN3MBK",
+      "prices": {
+        "紙＋電子": 4700,
+        "電子": 4500
+      }
+    }
+  ]
+}

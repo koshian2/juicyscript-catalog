@@ -1,0 +1,39 @@
+{
+  "id": "eki01_hidaka",
+  "title": "日高本線　車なし全駅巡り（車なし全駅巡りシリーズVol.1）",
+  "published": "2020/11",
+  "genre": "eki",
+  "blog": {
+    "enabled": false,
+    "order": 11
+  },
+  "cover": "covers/eki01_hidaka.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/2334590",
+      "caption": "紙版1700円",
+      "sold": true
+    },
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=746865",
+      "caption": "特典付2530円",
+      "sold": true
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B08PP2X45L",
+      "caption": "全3巻、Unlimited無料\n初巻300円、他490円"
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/6748243096502272?productVariantID=5877507330932736",
+      "prices": {
+        "紙＋電子": 1900,
+        "電子": 1600
+      },
+      "sold": true
+    }
+  ]
+}

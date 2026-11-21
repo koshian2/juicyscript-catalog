@@ -1,0 +1,45 @@
+{
+  "id": "infinity_numpy",
+  "title": "インフィニティNumPy――配列の初期化から、ゲームの戦闘、静止画や動画作成までの221問",
+  "published": "2020/12",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 8
+  },
+  "cover": "covers/infinity_numpy.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/2462894",
+      "prices": {
+        "紙＋電子": 1900,
+        "電子": 1800
+      }
+    },
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=778538",
+      "prices": {
+        "紙＋電子": 2365
+      },
+      "sold": true
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B08QH49TD1",
+      "prices": {
+        "紙": 3300,
+        "電子": 2850
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/5547509835366400?productVariantID=5739222210183168",
+      "prices": {
+        "紙＋電子": 2000,
+        "電子": 1800
+      }
+    }
+  ]
+}

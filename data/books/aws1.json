@@ -1,0 +1,45 @@
+{
+  "id": "aws1",
+  "title": "Terraformで学ぶAWS（１）：サーバーレスから始める再利用可能なインフラストラクチャ",
+  "subtitleBreakAfter": "サーバーレスから始める",
+  "published": "2024/11",
+  "genre": "tech",
+  "blog": {
+    "enabled": true,
+    "order": 2
+  },
+  "cover": "covers/aws1.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/6285253",
+      "prices": {
+        "紙＋電子": 1600,
+        "電子": 1600
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/snjQXDB8R1ZTUYFL9YADiy?productVariantID=1nmDNxr8rYbJGSGxfKWVia",
+      "prices": {
+        "紙＋電子": 1700,
+        "電子": 1500
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0DP5Q1VSM",
+      "prices": {
+        "紙": 2800,
+        "電子": 2800
+      }
+    },
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=2676579",
+      "prices": {
+        "紙": 2000
+      }
+    }
+  ]
+}

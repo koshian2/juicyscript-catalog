@@ -1,0 +1,37 @@
+{
+  "id": "coding_samurai",
+  "title": "コーディング侍:Pythonで学ぶ機械学習ソフトウェア開発の極意",
+  "published": "2023/11",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 4
+  },
+  "cover": "covers/coding_samurai.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/5286172",
+      "prices": {
+        "紙＋電子": 1900,
+        "電子": 1700
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0DB73Y91Q",
+      "prices": {
+        "紙": 2980,
+        "電子": 2900
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/cNMs3d3a2zFQX08yXHQAi9",
+      "prices": {
+        "紙＋電子": 1800,
+        "電子": 1600
+      }
+    }
+  ]
+}

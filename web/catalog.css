@@ -1,0 +1,84 @@
+.js-books p.head2 {
+        font-size: 22px;
+        font-weight: bold;
+}
+.js-books div.promo-item-container {
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns: minmax(150px, 1fr) 3fr;
+        margin-block-start: 0px;
+        margin-block-end: 30px;
+}
+
+.js-books div.promo-item-hyoshi {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        content: "　";
+        background-origin: content-box;
+        background-position: center;
+} 
+
+.js-books div.promo-item-main {
+        display: grid;
+        grid-template-rows: minmax(60px, 0.5fr) 3fr auto;
+}
+.js-books div.promo-item-title {
+        line-height: 1.4em;
+        font-family: 'Roboto', 'helvetica neue', helvetica, arial, sans-serif;
+        font-size: 20px;
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+}
+.js-books iframe.promo-item-description {
+        width: 130%;
+        max-width: 130%;
+        height: 300px;
+        transform: scale(0.8) translateX(-10%) translateY(-30px);
+        margin-bottom: -50px;
+}
+.js-books figure.promo-shop {
+        width: 200px;
+        height: 40px;
+        float: left;
+        position: relative;
+        overflow: hidden;
+        margin-block-start: 0px;
+        margin-block-end: 10px;
+        margin-inline-start: 0px;
+        margin-inline-end: 5px;
+}
+.js-books figcaption.promo-shop-hover-mask {
+        width: 200px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        color: #fff;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        font-size: 9pt;
+}
+.js-books figure.promo-shop:hover figcaption.promo-shop-hover-mask{
+        opacity: 1;
+}
+.js-books .promo-item-main { min-width: 0 }
+.js-books iframe { border: 0; display: block }
+.js-books .promo-item-shops img { width: 100%; height: 100%; display: block }
+.js-books figure:focus-within .promo-shop-hover-mask { opacity: 1 }
+@media (max-width: 600px) {
+  .js-books div.promo-item-container { grid-template-columns: minmax(85px, 1fr) minmax(0, 2fr) }
+  .js-books iframe.promo-item-description { width: 125%; max-width: 125%; transform: scale(.8); transform-origin: top left }
+  .js-books figure.promo-shop { max-width: 100%; margin-right: 0 }
+  .js-books .promo-shop-hover-mask { max-width: 100% }
+}

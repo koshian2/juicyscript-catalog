@@ -1,0 +1,45 @@
+{
+  "id": "docker",
+  "title": "はじめてのDocker & SageMaker　実運用のための一歩先の機械学習",
+  "published": "2022/9",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 6
+  },
+  "cover": "covers/docker.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/4150087",
+      "prices": {
+        "紙＋電子": 2000,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/aMV8vVfvdXQcKEFkYbkjEL",
+      "prices": {
+        "紙＋電子": 2000,
+        "電子": 1600
+      }
+    },
+    {
+      "shop": "melon",
+      "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=1796082",
+      "prices": {
+        "紙＋電子": 2640
+      },
+      "sold": true
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0C918NNS8",
+      "prices": {
+        "紙": 2980,
+        "電子": 2900
+      }
+    }
+  ]
+}

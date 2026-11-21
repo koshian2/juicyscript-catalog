@@ -1,0 +1,28 @@
+{
+  "id": "mlblog_01",
+  "title": "Shikoan's ML Blog -Vol.1/2-",
+  "published": "2020/6",
+  "genre": "tech",
+  "blog": {
+    "enabled": false,
+    "order": 10
+  },
+  "cover": "covers/mlblog_01.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/2169975",
+      "caption": "Vol.1 電子650円"
+    },
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/2170021",
+      "caption": "Vol.2 電子650円"
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/5649662253989888?productVariantID=5763350178824192",
+      "caption": "Vol.1, 2　電子各550円"
+    }
+  ]
+}

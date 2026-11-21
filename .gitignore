@@ -1,0 +1,9 @@
+dist/
+__pycache__/
+.wrangler/
+.preview/
+/reference/
+.env
+.env.*
+.dev.vars
+.dev.vars.*
