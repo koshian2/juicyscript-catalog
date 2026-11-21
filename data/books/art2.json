@@ -4,8 +4,7 @@
   "published": "2024/5",
   "genre": "tech",
   "blog": {
-    "enabled": true,
-    "order": 3
+    "enabled": false
   },
   "cover": "covers/art2.jpg",
   "shops": [
@@ -31,8 +30,7 @@
       "shop": "tbf",
       "url": "https://techbookfest.org/product/mwP6sCkTZ0ZXGGSp9LsT0z",
       "prices": {
-        "紙＋電子": 2600,
-        "電子": 1900
+        "電子": 1800
       }
     }
   ]

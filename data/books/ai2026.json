@@ -1,0 +1,38 @@
+{
+  "id": "ai2026",
+  "title": "AI論文年鑑 2026",
+  "published": "2026/4",
+  "genre": "tech",
+  "blog": {
+    "enabled": true,
+    "order": 40
+  },
+  "cover": "covers/ai2026.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/6926188",
+      "prices": {
+        "紙＋電子": 3200,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/qYAUwJURqQ34wrPJa1WAcM",
+      "prices": {
+        "紙＋電子": 3500,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0GWCWFM75",
+      "prices": {
+        "紙": 4800,
+        "電子": 3300
+      },
+      "kdp": { "printing": 1154 }
+    }
+  ]
+}

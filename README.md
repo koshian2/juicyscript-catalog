@@ -1,6 +1,6 @@
 # juicyscript-catalog
 
-サークル「じゅ～しぃ～すくりぷと」の公式ポータルとWordPressの記事下で使う公開書籍マスター。現行トップから書籍13件・グッズ1件を取り込んでいます。
+サークル「じゅ～しぃ～すくりぷと」の公式ポータルとWordPressの記事下で使う公開書籍マスターです。
 
 ## ローカルで見る
 
@@ -25,6 +25,7 @@ python scripts/preview.py
 | `covers/<id>.jpg` | 公開用書影 |
 
 データ形式の例は [書誌・販売先](data/examples/example.json) と [紹介文](data/examples/example.html) にあります。
+ブログ記事下には `blog.enabled` が `true` の本がジャンルごとに `blog.order` の昇順で並びます。掲載番号は10刻みが目安です。10と20の間に本を追加する場合は15を使えます。
 一部の形態が完売したら、その販売先の `soldOutFormats` に `prices` と同じ形態名を追加します。再入荷したら該当する形態名を外します。商品ページ全体の販売終了には `sold: true` を使います。
 ビルドすると `dist/` に配信用の `catalog.json`、画像、紹介文、JS、CSS が生成されます。
 

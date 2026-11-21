@@ -1,0 +1,40 @@
+{
+  "id": "aws3",
+  "title": "Terraformで学ぶAWS（３）：AIエージェント編",
+  "published": "2026/11",
+  "genre": "tech",
+  "blog": {
+    "enabled": true,
+    "order": 10
+  },
+  "cover": "covers/aws3.jpg",
+  "shops": [
+    {
+      "shop": "booth",
+      "url": "https://koshian2.booth.pm/items/9171831",
+      "prices": {
+        "紙＋電子": 2300,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/ibiuM3Q3PjcHaLQpukE7Pt",
+      "prices": {
+        "紙＋電子": 2700,
+        "電子": 2000
+      }
+    },
+    {
+      "shop": "amazon",
+      "url": "https://www.amazon.co.jp/dp/B0HS3YZ292",
+      "prices": {
+        "紙": 3650,
+        "電子": 3500
+      },
+      "kdp": {
+        "printing": 910
+      }
+    }
+  ]
+}

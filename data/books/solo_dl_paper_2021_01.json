@@ -45,7 +45,14 @@
     {
       "shop": "tbf",
       "url": "https://techbookfest.org/product/6525347413622784?productVariantID=5211222779625472",
-      "caption": "上下各　紙1500円、電子1000円"
+      "variant": "上巻",
+      "prices": { "電子": 1000 }
+    },
+    {
+      "shop": "tbf",
+      "url": "https://techbookfest.org/product/6055647709757440",
+      "variant": "下巻",
+      "prices": { "電子": 1000 }
     }
   ]
 }

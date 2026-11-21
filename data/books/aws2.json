@@ -5,7 +5,7 @@
   "genre": "tech",
   "blog": {
     "enabled": true,
-    "order": 0
+    "order": 20
   },
   "cover": "covers/aws2.jpg",
   "shops": [

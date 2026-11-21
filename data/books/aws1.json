@@ -6,7 +6,7 @@
   "genre": "tech",
   "blog": {
     "enabled": true,
-    "order": 2
+    "order": 30
   },
   "cover": "covers/aws1.jpg",
   "shops": [
@@ -22,7 +22,7 @@
       "shop": "tbf",
       "url": "https://techbookfest.org/product/snjQXDB8R1ZTUYFL9YADiy?productVariantID=1nmDNxr8rYbJGSGxfKWVia",
       "prices": {
-        "紙＋電子": 1700,
+        "紙＋電子": 1800,
         "電子": 1500
       }
     },
