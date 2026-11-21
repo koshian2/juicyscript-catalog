@@ -12,8 +12,9 @@
     {
       "shop": "booth",
       "url": "https://koshian2.booth.pm/items/3595424",
-      "caption": "上下巻各1500円（紙＋電子、電子）",
-      "sold": true
+      "variant": "上下巻各",
+      "prices": { "紙＋電子": 1500, "電子": 1500 },
+      "soldOutFormats": ["紙＋電子"]
     },
     {
       "shop": "amazon",

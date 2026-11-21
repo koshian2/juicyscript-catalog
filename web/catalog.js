@@ -21,7 +21,10 @@ function linkTo(url, newTab) {
 function banner(offer) {
   const figure = node("figure", "promo-shop");
   const name = shopNames[offer.shop] || offer.shop;
-  const caption = offer.caption ?? [offer.variant, Object.entries(offer.prices).map(([kind, amount]) => kind + amount + "円").join("、")].filter(Boolean).join(" ");
+  const prices = Object.entries(offer.prices ?? {}).map(([kind, amount]) =>
+    kind + (offer.soldOutFormats?.includes(kind) ? "完売" : amount + "円")).join("、");
+  const caption = offer.caption && !offer.soldOutFormats?.length ? offer.caption :
+    [offer.variant, prices, offer.caption].filter(Boolean).join(" ");
   const link = offer.sold ? node("span") : linkTo(offer.url, false);
   const image = node("img", "promo-shop");
   image.alt = name + (offer.sold ? "（販売終了）" : "");
@@ -88,7 +91,7 @@ function priceTable(book) {
     }
     if (offer.variant) store.append(node("small", "", offer.variant));
     row.append(store);
-    if (offer.caption) {
+    if (offer.caption && !offer.soldOutFormats?.length) {
       const cell = row.insertCell();
       cell.colSpan = Math.max(1, formats.length);
       cell.className = "terms";
@@ -99,8 +102,11 @@ function priceTable(book) {
       if (price === undefined) {
         cell.className = "empty";
         cell.textContent = "—";
+      } else if (offer.soldOutFormats?.includes(format)) {
+        cell.textContent = "完売";
       } else cell.append(price.toLocaleString("ja-JP"), node("small", "", "円"));
     }
+    if (offer.caption && offer.soldOutFormats?.length) store.append(node("small", "", offer.caption));
   }
   return table;
 }
@@ -116,7 +122,8 @@ function portalBooks(books, genre) {
     const heading = genre === "goods" ? (recent ? "新作" : "グッズ") : (recent ? "新刊" : "既刊");
     const article = node("article", "book");
     const cover = node("div", "cover-well");
-    const coverLink = linkTo(book.shops[0].url, true);
+    const availableShop = book.shops.find(offer => !offer.sold);
+    const coverLink = availableShop ? linkTo(availableShop.url, true) : node("span");
     const image = node("img", "cover-image");
     image.src = new URL(book.cover, catalogUrl);
     image.alt = book.title + "の表紙";
@@ -144,8 +151,9 @@ function portalBooks(books, genre) {
 }
 function blogRow(book) {
   const row = node("div", "promo-item-container");
-  const cover = linkTo(book.shops[0].url, true);
-  cover.setAttribute("aria-label", book.title + "の購入先");
+  const availableShop = book.shops.find(offer => !offer.sold);
+  const cover = availableShop ? linkTo(availableShop.url, true) : node("span");
+  if (availableShop) cover.setAttribute("aria-label", book.title + "の購入先");
   const image = node("div", "promo-item-hyoshi");
   image.style.backgroundImage = 'url("' + new URL(book.cover, catalogUrl).href + '")';
   cover.append(image);
@@ -171,6 +179,7 @@ function currentReceiptTable(books, store) {
     for (const shop of book.shops.filter(shop => shop.shop === store && !shop.sold)) {
       const prices = Object.entries(shop.prices ?? {});
       for (const [form, price] of prices.length ? prices : [["", null]]) {
+        if (shop.soldOutFormats?.includes(form)) continue;
         if (form === "紙" && shop.paperPublisher === "NextPublishing") continue;
         const amount = shop.receipts?.[form];
         const row = rows.insertRow();

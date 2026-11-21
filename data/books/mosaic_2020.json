@@ -12,7 +12,9 @@
     {
       "shop": "booth",
       "url": "https://koshian2.booth.pm/items/1835219",
+      "soldOutFormats": ["紙＋電子"],
       "prices": {
+        "紙＋電子": 2500,
         "電子": 1900
       }
     },

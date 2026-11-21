@@ -37,6 +37,7 @@
     },
     {
       "shop": "melon",
+      "soldOutFormats": ["紙"],
       "url": "https://www.melonbooks.co.jp/detail/detail.php?product_id=2676579",
       "prices": {
         "紙": 2000

@@ -11,6 +11,7 @@
   "shops": [
     {
       "shop": "booth",
+      "soldOutFormats": ["紙"],
       "url": "https://koshian2.booth.pm/items/2992128",
       "variant": "通常版",
       "prices": {

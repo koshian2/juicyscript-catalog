@@ -11,6 +11,7 @@
   "shops": [
     {
       "shop": "booth",
+      "soldOutFormats": ["紙＋電子"],
       "url": "https://koshian2.booth.pm/items/6926188",
       "prices": {
         "紙＋電子": 3200,

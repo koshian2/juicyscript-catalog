@@ -106,12 +106,21 @@ def build():
         for shop in book["shops"]:
             if urlsplit(shop["url"]).scheme not in {"https", "http"}:
                 raise ValueError(f"Invalid purchase URL: {path}")
+            prices = shop.get("prices", {})
+            sold_formats = shop.get("soldOutFormats", [])
+            if not isinstance(sold_formats, list) or any(
+                not isinstance(form, str) or form not in prices for form in sold_formats
+            ):
+                raise ValueError(f"soldOutFormats must list keys from prices: {path}, {shop['url']}")
+            if prices and all(form in sold_formats for form in prices):
+                shop["sold"] = True
+            available = {form: price for form, price in prices.items() if form not in sold_formats}
             if shop["shop"] == "booth" and not shop.get("sold"):
                 shop["receipts"] = {form: booth_receipt(price, form)
-                                    for form, price in shop.get("prices", {}).items()}
+                                    for form, price in available.items()}
             if shop["shop"] == "amazon" and "kdp" in shop and not shop.get("sold"):
                 shop["receipts"] = {form: kdp_receipt(price, form, shop["kdp"])
-                                    for form, price in shop.get("prices", {}).items()
+                                    for form, price in available.items()
                                     if not (form == "紙" and shop.get("paperPublisher") == "NextPublishing")}
         books.append(book)
     books.sort(key=lambda book: book["order"])

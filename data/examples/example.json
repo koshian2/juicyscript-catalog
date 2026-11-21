@@ -11,15 +11,9 @@
   "shops": [
     {
       "shop": "booth",
-      "url": "https://example.com/books/digital",
-      "prices": { "電子": 1500 },
-      "sold": false
-    },
-    {
-      "shop": "booth",
-      "url": "https://example.com/books/print-bundle",
-      "prices": { "紙＋電子": 2000 },
-      "sold": true
+      "url": "https://example.com/books/print-and-digital",
+      "prices": { "紙＋電子": 2000, "電子": 1500 },
+      "soldOutFormats": ["紙＋電子"]
     },
     {
       "shop": "melon",
