@@ -192,7 +192,8 @@ def build():
         book["introHtml"] = body[:split]
         book["moreHtml"] = body[split:].strip()
         book["descriptionUrl"] = "descriptions/" + book["id"] + ".html"
-        document = ('<!doctype html><html lang="ja"><meta charset="utf-8">'
+        language = "en" if book.get("language") == "en" else "ja"
+        document = (f'<!doctype html><html lang="{language}"><meta charset="utf-8">'
                     '<base target="_blank"><link rel="stylesheet" href="../portal/honoka.css">'
                     f'<title>{escape(book["title"])}</title><body>{body}</body></html>')
         (DIST / book["descriptionUrl"]).write_text(document, encoding="utf-8")

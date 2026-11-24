@@ -1,0 +1,14 @@
+{
+  "id": "aws2-en",
+  "title": "Terraforming AWS, Vol. 2: VPC and EC2 Fundamentals",
+  "published": "2026/07",
+  "genre": "tech",
+  "language": "en",
+  "topics": ["infra"],
+  "blog": {"enabled": false, "order": 0},
+  "cover": "covers/aws2-en.jpg",
+  "shops": [
+    {"shop": "amazon", "variant": "Kindle", "url": "https://www.amazon.co.jp/dp/B0HBMD7N83"},
+    {"shop": "amazon", "variant": "Paperback", "url": "https://www.amazon.com/dp/B0HBMXY6JZ"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "aws1-en",
+  "title": "Terraforming AWS, Vol. 1: Serverless Foundations",
+  "published": "2026/04",
+  "genre": "tech",
+  "language": "en",
+  "topics": ["infra"],
+  "blog": {"enabled": false, "order": 0},
+  "cover": "covers/aws1-en.jpg",
+  "shops": [
+    {"shop": "amazon", "variant": "Kindle", "url": "https://www.amazon.com/dp/B0GZKL7B79"},
+    {"shop": "amazon", "variant": "Paperback", "url": "https://www.amazon.com/dp/B0H1GLTSGN"}
+  ]
+}

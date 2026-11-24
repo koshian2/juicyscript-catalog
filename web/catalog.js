@@ -112,6 +112,7 @@ function priceTable(book) {
 }
 
 function portalBooks(books, genre) {
+  const english = genre === "tech-en";
   const content = document.createDocumentFragment();
   const today = new Date();
   let lastHeading;
@@ -119,14 +120,15 @@ function portalBooks(books, genre) {
     const [year, month] = book.published.split("/").map(Number);
     const age = (today.getFullYear() - year) * 12 + today.getMonth() + 1 - month;
     const recent = age >= 0 && age <= 12;
-    const heading = genre === "goods" ? (recent ? "新作" : "グッズ") : (recent ? "新刊" : "既刊");
+    const heading = english ? (recent ? "New releases" : "Backlist") :
+      genre === "goods" ? (recent ? "新作" : "グッズ") : (recent ? "新刊" : "既刊");
     const article = node("article", "book");
     const cover = node("div", "cover-well");
     const availableShop = book.shops.find(offer => !offer.sold);
     const coverLink = availableShop ? linkTo(availableShop.url, true) : node("span");
     const image = node("img", "cover-image");
     image.src = new URL(book.cover, catalogUrl);
-    image.alt = book.title + "の表紙";
+    image.alt = english ? "Cover of " + book.title : book.title + "の表紙";
     coverLink.append(image);
     cover.append(coverLink);
     const copy = node("div", "copy");
@@ -138,12 +140,22 @@ function portalBooks(books, genre) {
     if (book.moreHtml) {
       const details = node("details");
       details.innerHTML = book.moreHtml;
-      details.prepend(node("summary", "", "目次・紹介の続きを読む"));
+      details.prepend(node("summary", "", english ? "Read more" : "目次・紹介の続きを読む"));
       synopsis.append(details);
     }
     const purchase = node("div", "purchase");
-    purchase.append(node("h3", "", "購入先・価格"), priceTable(book));
-    copy.append(node("p", "issued", year + "年" + month + "月発行"), bookTitle(book), synopsis, purchase);
+    purchase.append(node("h3", "", english ? "Where to buy" : "購入先・価格"));
+    if (english) {
+      const links = node("div", "edition-links");
+      for (const offer of book.shops) {
+        const link = linkTo(offer.url, true);
+        link.textContent = offer.variant + " · " + new URL(offer.url).hostname.replace(/^www\./, "");
+        links.append(link);
+      }
+      purchase.append(links);
+    } else purchase.append(priceTable(book));
+    const issued = english ? new Date(year, month - 1).toLocaleDateString("en-US", {month:"long", year:"numeric"}) : year + "年" + month + "月発行";
+    copy.append(node("p", "issued", issued), bookTitle(book), synopsis, purchase);
     article.append(cover, copy);
     content.append(article);
   }
@@ -258,7 +270,7 @@ async function render() {
     for (const root of roots) {
       const kind = root.dataset.jsCatalog;
       if (kind === "margin") {
-        root.replaceChildren(receiptTable(catalog.receipts, catalog.books));
+        root.replaceChildren(receiptTable(catalog.receipts, catalog.books.filter(book => book.language !== "en")));
       } else if (kind === "blog") {
         const content = document.createDocumentFragment();
         for (const [genre, title] of [["tech","技術書コーナー"],["eki","北海道の駅巡りコーナー"]]) {
@@ -268,7 +280,8 @@ async function render() {
         }
         root.replaceChildren(content);
       } else {
-        const books = catalog.books.filter(book => book.genre === kind);
+        const books = catalog.books.filter(book => kind === "tech-en"
+          ? book.genre === "tech" && book.language === "en" : book.genre === kind && book.language !== "en");
         books.sort((a,b) => b.published.localeCompare(a.published, "ja", {numeric:true}));
         root.replaceChildren(kind === "tech" ? techBooks(books) : portalBooks(books, kind));
       }

@@ -35,6 +35,9 @@ body, .nav-tabs, .copy, .shelf, .copy h2, .purchase h3, .issued {
 }
 .synopsis { font-weight: 400; line-height: 1.88; letter-spacing: .012em }
 .synopsis b { font-weight: 640 }
+#tech-en .synopsis h4 { font-size: 1.0625em; line-height: 1.5; }
+#tech-en .synopsis > h4:first-child { font-size: 1em; }
+#tech-en .synopsis > h4:first-child u { text-decoration: none; }
 .issued, .nav-tabs .nav-link { font-weight: 500 }
 .price-matrix { width: 100%; border-collapse: collapse; font-size: 16px; font-variant-numeric: tabular-nums }
 .price-matrix th, .price-matrix td { text-align: right; padding: 10px 12px; border-bottom: 1px solid #d9e1e6 }
@@ -158,3 +161,5 @@ nav.nav { gap: 0 6px }
 .tech-filters button { min-height: 44px; padding: 6px 16px; border: 1px solid #bdccd9; border-radius: 22px; color: var(--ink); background: white; font: inherit; cursor: pointer; }
 .tech-filters button[aria-pressed="true"] { color: white; background: var(--blue); border-color: var(--blue); }
 .tech-filters button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.edition-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.edition-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 4px; color: var(--blue); font-weight: bold; }

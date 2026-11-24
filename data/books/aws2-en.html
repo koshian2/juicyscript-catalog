@@ -1,0 +1,50 @@
+<h4><u><b>Finally make sense of AWS networking — and build infrastructure you can explain with confidence.</b></u></h4>
+
+<p>This is a hands-on guide to the most essential AWS services — VPC, EC2, and Application Load Balancer — built as code with Terraform. It is for readers who want to really understand AWS networking, not just get it to work.</p>
+
+<h4><u><b>What makes this book different</b></u></h4>
+
+<p>Networking is the biggest wall in learning AWS. Subnets, route tables, security groups... Have you ever thought, "I just want to launch one EC2 instance — why do I need all these steps?" This book answers those questions one at a time. It does not just show you <b>how</b> to write the code. It explains <b>why each part of the architecture is there</b>.</p>
+
+<p>Generative AI can now write Terraform code for you. What it cannot do is take responsibility for your design — that is still a human job. The author holds <b>all 12 AWS certifications</b> and keeps the book closely aligned with the official AWS documentation. By the end, you will be building infrastructure that is <b>secure, scalable, and easy to explain</b> — not something that just happens to work.</p>
+
+<h4><u><b>How the book progresses</b></u></h4>
+
+<p>The book builds one system step by step, as you would in a real project. It starts with <b>CIDR design</b>, a common stumbling block for beginners, and sets up secure access with <b>Session Manager</b> — no open SSH ports. You then attach EC2 instances to an <b>ALB</b> and publish a web application, and add an <b>Auto Scaling group</b> so the number of servers grows and shrinks with demand. After load testing with <b>Locust</b>, you finish by putting <b>CloudFront</b> in front for faster, safer content delivery.</p>
+
+<h4><u><b>What you'll learn</b></u></h4>
+
+<p>Volume 2 walks through <b>55+ hands-on examples</b>, including:</p>
+
+<ul>
+<li><b>VPC and EC2 fundamentals</b> — subnets, route tables, security groups, and connecting to EC2</li>
+<li><b>Practical VPC and EC2 patterns</b> — private subnets, NAT gateways, VPC endpoints, Session Manager, EFS, VPC peering, and Flow Logs</li>
+<li><b>Elastic Load Balancing</b> — ALB, target groups, health checks, Route 53, ACM certificates, internal ALBs, NLB, PrivateLink, and VPC Lattice</li>
+<li><b>Auto Scaling</b> — launch templates, scaling policies, custom metrics, predictive scaling, and load testing with Locust</li>
+<li><b>Amazon CloudFront</b> — S3 and ALB origins, cache policies, custom domains, WAF, Lambda@Edge, CloudFront Functions, and VPC origins</li>
+</ul>
+
+<h4><u><b>Who this book is for</b></u></h4>
+
+<ul>
+<li>Engineers who have used EC2 or VPC "by feel" and want to understand them properly</li>
+<li>Anyone moving toward containers or AI/ML — they all run on top of VPC</li>
+<li>Readers of Volume 1 who are ready to step into real infrastructure</li>
+</ul>
+
+<h4><u><b>Do I need Volume 1?</b></u></h4>
+
+<p>No. Volume 1 covered managed services such as Lambda and S3, where AWS runs the infrastructure for you. This volume covers the network layer that you manage yourself, and it is written to stand on its own — you can start here.</p>
+
+<h4><u><b>About this English edition</b></u></h4>
+
+<p>This edition is based on the Japanese edition published in November 2025. Time-sensitive details have been updated for 2026 readers. Unlike the English edition of Volume 1, <b>no chapters have been omitted</b>. Chapter numbers start from 1, while case numbers (55–113) follow the series-wide numbering used by the sample code and the Japanese edition.</p>
+
+<h4><u><b>Sample code</b></u></h4>
+
+<p>All sample code is on GitHub under the MIT License:<br>
+<i>github.com/koshian2/terraform-aws-book</i></p>
+
+<h4><u><b>About the series</b></u></h4>
+
+<p>This is <b>Volume 2</b> of the Terraforming AWS series. Volume 1, <i>Serverless Foundations</i>, covers Terraform basics and AWS serverless. Volume 3, covering AWS AI/ML services, is planned next.</p>
