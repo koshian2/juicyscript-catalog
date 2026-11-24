@@ -39,6 +39,26 @@ def booth_receipt(price, form):
     return price - service - warehouse
 
 
+def tbf_receipt(price, form):
+    """Estimate a marketplace sale wholly above the commission-free allowance."""
+    if type(price) is not int or price < 0:
+        raise ValueError(f"Invalid TBF price: {price}")
+    if form not in {"電子", "紙", "紙＋電子"}:
+        return None
+    shipping = 0 if form == "電子" else 100
+    return int((Decimal(price) * Decimal("0.8")).quantize(Decimal(1), rounding=ROUND_HALF_UP)) - shipping
+
+
+def tbf_receipt(price, form):
+    """Estimate a marketplace sale wholly above the commission-free allowance."""
+    if type(price) is not int or price < 0:
+        raise ValueError(f"Invalid TBF price: {price}")
+    if form not in {"電子", "紙", "紙＋電子"}:
+        return None
+    shipping = 0 if form == "電子" else 100
+    return int((Decimal(price) * Decimal("0.8")).quantize(Decimal(1), rounding=ROUND_HALF_UP)) - shipping
+
+
 def kdp_receipt(price, form, terms):
     """Estimate one retail sale on Amazon.co.jp from a tax-inclusive list price."""
     if type(price) is not int or price < 0:
@@ -155,6 +175,10 @@ def build():
                 shop["receipts"] = {form: kdp_receipt(price, form, shop["kdp"])
                                     for form, price in available.items()
                                     if not (form == "紙" and shop.get("paperPublisher") == "NextPublishing")}
+            if shop["shop"] == "tbf" and not shop.get("sold"):
+                shop["receipts"] = {form: tbf_receipt(price, form) for form, price in available.items()}
+            if shop["shop"] == "tbf" and not shop.get("sold"):
+                shop["receipts"] = {form: tbf_receipt(price, form) for form, price in available.items()}
         books.append(book)
     book_ids = {book["id"] for book in books}
     for path in sorted((ROOT / "data/bundles").glob("*.json")):

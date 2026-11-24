@@ -206,11 +206,12 @@ function blogRow(book) {
 }
 
 function currentReceiptTable(books, store) {
-  const current = node("table", "table table-sm table-bordered current-receipts");
+  const current = node("table", "current-receipts");
+  current.setAttribute("aria-label", shopNames[store] + "の著者受取額");
   const labels = current.createTHead().insertRow();
   for (const label of ["作品", "形態", "販売価格", "著者受取額"]) labels.append(node("th", "", label));
-  const rows = current.createTBody();
   for (const book of books) {
+    const rows = node("tbody");
     for (const shop of book.shops.filter(shop => shop.shop === store && !shop.sold)) {
       const prices = Object.entries(shop.prices ?? {});
       for (const [form, price] of prices.length ? prices : [["", null]]) {
@@ -218,46 +219,49 @@ function currentReceiptTable(books, store) {
         if (form === "紙" && shop.paperPublisher === "NextPublishing") continue;
         const amount = shop.receipts?.[form];
         const row = rows.insertRow();
-        for (const value of [book.title, [shop.variant, form].filter(Boolean).join(" "), price == null ? shop.caption : price.toLocaleString("ja-JP") + "円",
+        for (const value of [[shop.variant, form].filter(Boolean).join(" "), price == null ? shop.caption : price.toLocaleString("ja-JP") + "円",
           amount == null ? "条件未確認" : amount.toLocaleString("ja-JP") + "円"]) row.insertCell().textContent = value;
       }
+    }
+    if (rows.rows.length) {
+      const title = node("th", "", book.title);
+      title.scope = "rowgroup";
+      title.rowSpan = rows.rows.length;
+      rows.rows[0].prepend(title);
+      current.append(rows);
     }
   }
   return current;
 }
 
-function receiptTable(receipts, books) {
+function receiptTable(books) {
   const wrap = node("div", "receipt-sheet");
-  wrap.append(node("h2", "", "BOOTHの著者受取額（現在の登録価格）"),
-    node("p", "", "1商品を単独注文、BOOSTなしの場合。電子はダウンロード、紙・紙＋電子は倉庫発送として計算しています。印刷原価・振込手数料は含みません。"));
-  wrap.append(currentReceiptTable(books, "booth"),
-    node("h2", "", "Amazon.co.jpのKDPロイヤリティ（通常販売1冊の概算）"),
-    node("p", "", "税込希望小売価格を基準とします。印刷コスト・電子版の適用条件が未登録の行は条件未確認と表示します。Kindle Unlimitedの既読収益は含みません。"),
-    currentReceiptTable(books, "amazon"), node("h2", "", "参考：旧早見表（当時の頒価・手数料）"));
-  const table = node("table", "table table-sm table-bordered");
-  const columns = ["Booth", "とら", "メロン", "技術書典OM", "おもバザハンズ", "Amazon", "メロン完全版"];
-  const head = table.createTHead().insertRow();
-  for (const label of ["早見表（円）", ...columns]) head.append(node("th", "", label));
-  for (const group of receipts.groups) {
-    const body = table.createTBody();
-    const title = node("th", "", group.title);
-    title.colSpan = head.cells.length;
-    body.insertRow().append(title);
-    for (const format of new Set(group.offers.map(offer => offer.format))) {
-      const offers = group.offers.filter(offer => offer.format === format);
-      for (const [field, label] of [["price","基準頒価"],["printing","オンデマンド印刷代"],["amount","受取金額"]]) {
-        if (field === "printing" && !offers.some(offer => offer.printing)) continue;
-        const row = body.insertRow();
-        row.append(node("th", "", format + label));
-        for (const shop of columns) {
-          const offer = offers.find(item => item.shop === shop);
-          row.insertCell().textContent = String(offer?.[field] ?? "—") + (field === "amount" ? offer?.note ?? "" : "");
-        }
-      }
-    }
+  const controls = node("div", "tech-filters");
+  controls.setAttribute("role", "group");
+  controls.setAttribute("aria-label", "表示する受取額表");
+  const panel = node("div");
+  const ordered = [...books].sort((a, b) => b.published.localeCompare(a.published, "ja", {numeric:true}));
+  for (const [key, label, heading, note] of [
+    ["booth", "BOOTH", "BOOTHの著者受取額", "1商品を単独注文、BOOSTなしの場合。電子はダウンロード、紙・紙＋電子は倉庫発送として計算しています。印刷原価・振込手数料は含みません。"],
+    ["amazon", "Amazon.co.jp", "Amazon.co.jpのKDPロイヤリティ", "通常販売1冊の概算です。税込希望小売価格を基準とします。印刷コスト・電子版の適用条件が未登録の行は条件未確認と表示します。Kindle Unlimitedの既読収益は含みません。"],
+    ["tbf", "技術書典", "技術書典オンラインマーケットの著者受取額（概算）", "販売手数料の無料枠を使い切った場合の1冊あたりの目安です。通販価格の80%を円単位に四捨五入し、紙の本を含む場合は発送手数料100円を引いています。振込手数料と印刷原価は含みません。"],
+  ]) {
+    const button = node("button", "", label);
+    button.type = "button";
+    button.setAttribute("aria-pressed", "false");
+    controls.append(button);
+    const show = () => {
+      for (const item of controls.children) item.setAttribute("aria-pressed", String(item === button));
+      panel.replaceChildren(node("h2", "", heading));
+
+      const details = node("details", "receipt-conditions");
+      details.append(node("summary", "", "計算条件"), node("p", "", note));
+      panel.append(details, currentReceiptTable(ordered, key));
+    };
+    button.addEventListener("click", show);
+    if (key === "booth") show();
   }
-  wrap.append(table);
-  for (const note of receipts.notes) wrap.append(node("p", "", note));
+  wrap.append(controls, panel);
   return wrap;
 }
 
@@ -270,7 +274,7 @@ async function render() {
     for (const root of roots) {
       const kind = root.dataset.jsCatalog;
       if (kind === "margin") {
-        root.replaceChildren(receiptTable(catalog.receipts, catalog.books.filter(book => book.language !== "en")));
+        root.replaceChildren(receiptTable(catalog.books.filter(book => book.language !== "en")));
       } else if (kind === "blog") {
         const content = document.createDocumentFragment();
         for (const [genre, title] of [["tech","技術書コーナー"],["eki","北海道の駅巡りコーナー"]]) {

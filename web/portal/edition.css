@@ -162,4 +162,21 @@ nav.nav { gap: 0 6px }
 .tech-filters button[aria-pressed="true"] { color: white; background: var(--blue); border-color: var(--blue); }
 .tech-filters button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .edition-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.receipt-sheet { width: 100%; max-width: 1000px; height: auto; overflow: visible; }
+.receipt-sheet h2 { margin: 0 0 12px; font-size: clamp(1.15rem, 3vw, 1.5rem); }
+.receipt-conditions { margin-bottom: 14px; color: #41556a; font-size: .9rem; }
+.receipt-conditions summary { width: fit-content; cursor: pointer; color: var(--blue); }
+.receipt-conditions p { margin-top: 8px; }
+.current-receipts { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.current-receipts thead { position: static; background: #eff4f8; }
+.current-receipts th, .current-receipts td { padding: 10px 8px; text-align: left; white-space: normal; }
+.current-receipts tbody { border-bottom: 1px solid var(--line); }
+.current-receipts tbody th { width: 45%; vertical-align: middle; }
+.current-receipts th:nth-last-child(-n+2), .current-receipts td:nth-last-child(-n+2) { text-align: right; font-variant-numeric: tabular-nums; }
+.current-receipts tbody td:last-child { font-weight: bold; color: var(--blue); }
+@media (max-width: 650px) {
+  .current-receipts { font-size: .84rem; }
+  .current-receipts th, .current-receipts td { padding: 8px 4px; }
+  .current-receipts tbody th { width: 36%; overflow-wrap: anywhere; }
+}
 .edition-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 4px; color: var(--blue); font-weight: bold; }

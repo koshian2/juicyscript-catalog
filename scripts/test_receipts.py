@@ -1,6 +1,6 @@
 import unittest
 
-from build import ROOT, booth_receipt, kdp_receipt, read_json, receipt
+from build import ROOT, booth_receipt, kdp_receipt, read_json, receipt, tbf_receipt
 
 
 class CurrentBoothTest(unittest.TestCase):
@@ -12,6 +12,14 @@ class CurrentBoothTest(unittest.TestCase):
         ]:
             with self.subTest(form=form, price=price):
                 self.assertEqual(booth_receipt(price, form), expected)
+
+
+class TbfTest(unittest.TestCase):
+    def test_marketplace_sale_above_allowance(self):
+        self.assertEqual(tbf_receipt(2000, "電子"), 1600)
+        self.assertEqual(tbf_receipt(2700, "紙＋電子"), 2060)
+        self.assertEqual(tbf_receipt(2700, "紙"), 2060)
+        self.assertIsNone(tbf_receipt(1800, "グッズ"))
 
 
 class KdpTest(unittest.TestCase):

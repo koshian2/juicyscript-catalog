@@ -29,7 +29,8 @@
     {
       "shop": "tbf",
       "url": "https://techbookfest.org/product/5649662253989888?productVariantID=5763350178824192",
-      "caption": "Vol.1, 2　電子各550円"
+      "variant": "Vol.1・2 各巻",
+      "prices": {"電子": 550}
     }
   ]
 }
