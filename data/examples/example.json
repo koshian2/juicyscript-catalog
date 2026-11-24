@@ -3,6 +3,7 @@
   "title": "サンプル書籍：はじめての実践ガイド",
   "published": "2026/11",
   "genre": "tech",
+  "topics": ["infra"],
   "blog": {
     "enabled": true,
     "order": 0

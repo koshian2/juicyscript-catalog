@@ -3,6 +3,7 @@
   "title": "はじめてのDocker & SageMaker　実運用のための一歩先の機械学習",
   "published": "2022/9",
   "genre": "tech",
+  "topics": ["infra", "ai"],
   "blog": {
     "enabled": false,
     "order": 6

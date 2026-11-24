@@ -3,6 +3,7 @@
   "title": "インフィニティNumPy――配列の初期化から、ゲームの戦闘、静止画や動画作成までの221問",
   "published": "2020/12",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false,
     "order": 8

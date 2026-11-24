@@ -3,6 +3,7 @@
   "title": "Shikoan's ML Blog -Vol.1/2-",
   "published": "2020/6",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false,
     "order": 10

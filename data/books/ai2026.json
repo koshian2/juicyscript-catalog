@@ -3,6 +3,7 @@
   "title": "AI論文年鑑 2026",
   "published": "2026/4",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": true,
     "order": 40

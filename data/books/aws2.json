@@ -3,6 +3,7 @@
   "title": "Terraformで学ぶAWS（２）：VPC編",
   "published": "2025/11",
   "genre": "tech",
+  "topics": ["infra"],
   "blog": {
     "enabled": true,
     "order": 20

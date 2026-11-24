@@ -3,6 +3,7 @@
   "title": "AIアートの新時代：CLIPとStable Diffusionを活用した画像生成技術とその応用",
   "published": "2023/5",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false,
     "order": 5

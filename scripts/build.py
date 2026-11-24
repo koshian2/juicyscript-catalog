@@ -132,6 +132,10 @@ def build():
             raise ValueError(f"Missing cover: {path}")
         if book["genre"] not in {"tech", "eki", "goods"}:
             raise ValueError(f"Unknown genre: {path}")
+        if book["genre"] == "tech":
+            topics = book.get("topics")
+            if not isinstance(topics, list) or not topics or any(t not in ("infra", "ai") for t in topics):
+                raise ValueError(f"Expected tech topics (infra or ai): {path}")
         for shop in book["shops"]:
             if urlsplit(shop["url"]).scheme not in {"https", "http"}:
                 raise ValueError(f"Invalid purchase URL: {path}")

@@ -3,6 +3,7 @@
   "title": "AI論文年鑑 2025",
   "published": "2025/5",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false
   },

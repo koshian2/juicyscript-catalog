@@ -3,6 +3,7 @@
   "title": "Terraformで学ぶAWS（３）：AIエージェント編",
   "published": "2026/11",
   "genre": "tech",
+  "topics": ["infra", "ai"],
   "blog": {
     "enabled": true,
     "order": 10

@@ -3,6 +3,7 @@
   "title": "コーディング侍:Pythonで学ぶ機械学習ソフトウェア開発の極意",
   "published": "2023/11",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false,
     "order": 4

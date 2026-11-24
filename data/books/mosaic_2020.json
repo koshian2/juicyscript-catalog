@@ -3,6 +3,7 @@
   "title": "モザイク除去から学ぶ　最先端のディープラーニング",
   "published": "2020/3",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false,
     "order": 9

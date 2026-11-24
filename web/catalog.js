@@ -149,6 +149,29 @@ function portalBooks(books, genre) {
   }
   return content;
 }
+function techBooks(books) {
+  const controls = node("div", "tech-filters");
+  controls.setAttribute("role", "group");
+  controls.setAttribute("aria-label", "技術書の分野");
+  const list = node("div");
+  list.append(portalBooks(books, "tech"));
+  for (const [topic, label] of [["all", "すべて"], ["infra", "インフラ"], ["ai", "AI・機械学習"]]) {
+    const button = node("button", "", label);
+    button.type = "button";
+    button.setAttribute("aria-pressed", String(topic === "all"));
+    button.addEventListener("click", () => {
+      if (button.getAttribute("aria-pressed") === "true") return;
+      for (const other of controls.children) other.setAttribute("aria-pressed", String(other === button));
+      const visible = topic === "all" ? books : books.filter(book => book.topics?.includes(topic));
+      list.replaceChildren(portalBooks(visible, "tech"));
+    });
+    controls.append(button);
+  }
+  const content = document.createDocumentFragment();
+  content.append(controls, list);
+  return content;
+}
+
 function blogRow(book) {
   const row = node("div", "promo-item-container");
   const availableShop = book.shops.find(offer => !offer.sold);
@@ -247,7 +270,7 @@ async function render() {
       } else {
         const books = catalog.books.filter(book => book.genre === kind);
         books.sort((a,b) => b.published.localeCompare(a.published, "ja", {numeric:true}));
-        root.replaceChildren(portalBooks(books, kind));
+        root.replaceChildren(kind === "tech" ? techBooks(books) : portalBooks(books, kind));
       }
     }
   } catch (error) {

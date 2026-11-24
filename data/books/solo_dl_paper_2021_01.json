@@ -3,6 +3,7 @@
   "title": "2021年のディープラーニング論文を1人で読むアドベントカレンダー　上/下",
   "published": "2022/1",
   "genre": "tech",
+  "topics": ["ai"],
   "blog": {
     "enabled": false,
     "order": 7

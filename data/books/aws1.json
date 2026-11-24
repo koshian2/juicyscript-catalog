@@ -4,6 +4,7 @@
   "subtitleBreakAfter": "サーバーレスから始める",
   "published": "2024/11",
   "genre": "tech",
+  "topics": ["infra"],
   "blog": {
     "enabled": true,
     "order": 30

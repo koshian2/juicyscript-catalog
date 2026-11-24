@@ -154,3 +154,7 @@ nav.nav { gap: 0 6px }
   .price-matrix img { width: 152px }
   .price-matrix tbody th, .price-matrix tbody td { padding: 8px 4px }
 }
+.tech-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tech-filters button { min-height: 44px; padding: 6px 16px; border: 1px solid #bdccd9; border-radius: 22px; color: var(--ink); background: white; font: inherit; cursor: pointer; }
+.tech-filters button[aria-pressed="true"] { color: white; background: var(--blue); border-color: var(--blue); }
+.tech-filters button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
