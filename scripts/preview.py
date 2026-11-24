@@ -16,7 +16,7 @@ class AssetHandler(SimpleHTTPRequestHandler):
 
 def prepare(target, assets):
     target.mkdir(exist_ok=True, parents=True)
-    for name in ("index.html", "blog-widget.html"):
+    for name in ("index.html", "blog-widget.html", "blog-header.html"):
         source = (ROOT / "portal" / name).read_text(encoding="utf-8")
         (target / name).write_text(source.replace("__ASSETS__", assets.rstrip("/")), encoding="utf-8")
     copyfile(ROOT / "portal/logo.png", target / "logo.png")

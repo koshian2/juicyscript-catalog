@@ -1,4 +1,5 @@
 """Build the public static catalog using Python's standard library."""
+from hashlib import sha256
 from html import escape
 import json
 import re
@@ -96,6 +97,22 @@ def receipt(offer):
     return int(amount.quantize(Decimal(1), rounding=ROUND_HALF_UP))
 
 
+def blog_header(books):
+    settings = read_json(ROOT / "data/blog-header.json")
+    book = next((b for b in books if b["id"] == settings["bookId"]), None)
+    if book is None:
+        raise ValueError(f"Unknown blog header book: {settings['bookId']}")
+    shop = next((s for s in book["shops"] if s["shop"] == settings["shop"] and not s.get("sold")), None)
+    if shop is None:
+        raise ValueError(f"Missing available blog header shop for {book['id']}: {settings['shop']}")
+    filename = settings["image"]
+    if not re.fullmatch(re.escape(book["id"]) + r"(?:-[a-z0-9_-]+)?\.png", filename):
+        raise ValueError(f"Invalid blog header image for {book['id']}: {filename}")
+    image = "blog-banners/" + filename
+    version = sha256((ROOT / "web" / image).read_bytes()).hexdigest()[:16]
+    return {"title": book["title"], "url": shop["url"], "image": f"{image}?v={version}"}
+
+
 def build():
     books = []
     for path in sorted((ROOT / "data/books").glob("*.json")):
@@ -153,8 +170,10 @@ def build():
             raise ValueError(f"Unknown receipt example: {group['id']}")
         for offer in group["offers"]:
             offer["amount"] = receipt(offer)
+    banner = blog_header(books)
     DIST.mkdir(exist_ok=True)
     shutil.copytree(ROOT / "web", DIST, dirs_exist_ok=True)
+    (DIST / "blog-header.json").write_text(json.dumps(banner, ensure_ascii=False), encoding="utf-8")
     (DIST / "covers").mkdir(exist_ok=True)
     descriptions = DIST / "descriptions"
     descriptions.mkdir(exist_ok=True)

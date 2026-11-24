@@ -3,3 +3,5 @@
   X-Content-Type-Options: nosniff
 /catalog.json
   Cache-Control: no-cache
+/blog-header.json
+  Cache-Control: no-cache
